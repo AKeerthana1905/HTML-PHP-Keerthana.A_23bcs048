@@ -1,0 +1,17 @@
+Write a PHP function that takes two numbers as input and returns the sum of those
+numbers. Display the result on the webpage, when a button is clicked.
+
+code;
+<form method="post">
+    <input type="number" name="a" required>
+    <input type="number" name="b" required>
+    <button type="submit">Sum</button>
+</form>
+
+<?php
+function add($x, $y) { return $x + $y; }
+if ($_POST) echo "Sum: " . add($_POST['a'], $_POST['b']);
+?>
+
+output
+15+15=30
