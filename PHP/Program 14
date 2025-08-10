@@ -1,0 +1,20 @@
+Show a form with input fields for a user's name, email, and message. When the form is
+submitted, display a confirmation message on the same page with the user's name and
+email.
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    echo "Thanks, $name! We’ll contact you at $email.";
+} else {
+?>
+<form method="post">
+    Name: <input type="text" name="name" required><br>
+    Email: <input type="email" name="email" required><br>
+    Message: <textarea name="message"></textarea><br>
+    <input type="submit" value="Submit">
+</form>
+<?php
+}
+?>
