@@ -1,0 +1,10 @@
+Infer the usage of the following PHP functions:
+(i) rand() (ii) abs() (iii) strreplace() (iv) pi( ) (v) ceil()
+
+<?php
+echo rand(1, 10) . "<br>";                 // Random number between 1 and 10
+echo abs(-5) . "<br>";                     // 5
+echo str_replace("world", "PHP", "Hello world") . "<br>"; // Hello PHP
+echo pi() . "<br>";                        // 3.1415926535898
+echo ceil(4.3);                            // 5
+?>
