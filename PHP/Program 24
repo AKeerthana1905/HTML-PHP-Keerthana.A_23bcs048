@@ -1,0 +1,15 @@
+<?php
+$text = "PHP is awesome!";
+echo substr($text, 0, 3) . "<br>";      // PHP
+echo strpos($text, "awesome") . "<br>";// position
+echo str_replace("awesome", "powerful", $text) . "<br>"; // replace
+echo ucfirst("php") . "<br>";          // Php
+echo ucwords("php is fun") . "<br>";   // Php Is Fun
+?>
+
+output:
+PHP
+7
+PHP is powerful!
+Php
+Php Is Fun
