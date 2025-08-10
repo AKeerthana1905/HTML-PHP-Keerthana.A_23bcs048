@@ -1,0 +1,13 @@
+Construct a php program to create a chess board in PHP using the “For” loop.
+
+code:
+<?php
+echo "<div style='width:320px;'>";
+for ($row = 1; $row <= 8; $row++) {
+    for ($col = 1; $col <= 8; $col++) {
+        $color = ($row + $col) % 2 ? "#000" : "#fff";
+        echo "<div style='width:40px;height:40px;float:left;background:$color;'></div>";
+    }
+}
+echo "</div>";
+?>
