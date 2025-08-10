@@ -1,0 +1,7 @@
+Articulate the mathematical operators with suitable examples in PHP.
+
+<?php
+$x = 5; $y = 2;
+echo $x ** $y; // 25 (Power)
+echo ($x + $y) * 2; // 14 (Combined operations)
+?>
