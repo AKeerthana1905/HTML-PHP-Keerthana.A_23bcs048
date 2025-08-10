@@ -1,0 +1,16 @@
+Examine a PHP function that accepts an array of numbers and returns the highest and
+lowest values in that array. Display the results on the webpage.
+
+<?php
+function minMaxSort($arr) {
+    sort($arr);
+    return ["min" => $arr[0], "max" => end($arr)];
+}
+$nums = [5, 10, 2, 8, 15];
+$res = minMaxSort($nums);
+echo "Lowest: {$res['min']}<br>Highest: {$res['max']}";
+?>
+
+output:
+Lowest: 2
+Highest: 15
