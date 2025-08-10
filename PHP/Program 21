@@ -1,0 +1,12 @@
+Create a PHP script that counts the number of occurrences of a specific word in a given
+string.
+
+<?php
+$text = "PHP is great and PHP is easy to learn.";
+$word = "php";
+$count = 0;
+foreach (str_word_count(strtolower($text), 1) as $w) {
+    if ($w == strtolower($word)) $count++;
+}
+echo "Occurrences: $count";
+?>
