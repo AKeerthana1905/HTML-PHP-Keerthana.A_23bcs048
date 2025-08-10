@@ -1,0 +1,37 @@
+<?php
+// Get the current day number (0 = Sunday, 6 = Saturday)
+$day_number = date("w");
+
+switch ($day_number) {
+    case 0:
+        $day_name = "Sunday";
+        break;
+    case 1:
+        $day_name = "Monday";
+        break;
+    case 2:
+        $day_name = "Tuesday";
+        break;
+    case 3:
+        $day_name = "Wednesday";
+        break;
+    case 4:
+        $day_name = "Thursday";
+        break;
+    case 5:
+        $day_name = "Friday";
+        break;
+    case 6:
+        $day_name = "Saturday";
+        break;
+    default:
+        $day_name = "Invalid day";
+}
+
+echo "Today is: $day_name";
+?>
+
+
+Output:
+
+Today is: Sunday
