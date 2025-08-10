@@ -1,0 +1,26 @@
+Examine the various control structures in php and construct a bank transaction problem
+with customers deposit and withdrawal of amount.
+
+<?php
+$balance = 1000; // initial balance
+$transaction = "withdraw"; // deposit or withdraw
+$amount = 300;
+
+// if-else control structure
+if ($transaction == "deposit") {
+    $balance += $amount;
+    echo "Deposited ₹$amount. New Balance: ₹$balance";
+} elseif ($transaction == "withdraw") {
+    // nested if
+    if ($amount <= $balance) {
+        $balance -= $amount;
+        echo "Withdrew ₹$amount. New Balance: ₹$balance";
+    } else {
+        echo "Insufficient balance!";
+    }
+} else {
+    echo "Invalid transaction type!";
+}
+?>
+output:
+Withdrew ₹300. New Balance: ₹700
