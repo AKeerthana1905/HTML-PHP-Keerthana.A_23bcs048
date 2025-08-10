@@ -1,0 +1,23 @@
+
+Implement a contact form with validation to ensure all fields are filled out before
+submission.
+
+<form method="post" onsubmit="return validateForm()">
+  Name: <input type="text" name="name" id="name"><br>
+  Email: <input type="email" name="email" id="email"><br>
+  Message: <textarea name="message" id="message"></textarea><br>
+  <input type="submit" value="Submit">
+</form>
+<script>
+function validateForm(){
+  if(!name.value || !email.value || !message.value){
+    alert("All fields are required!");
+    return false;
+  }
+}
+</script>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo "Form submitted successfully!";
+}
+?>
