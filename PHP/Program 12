@@ -1,0 +1,19 @@
+<?php
+// Get marks from user (example value)
+$marks = 68; 
+
+if ($marks >= 75) {
+    echo "First Class";
+} elseif ($marks >= 60 && $marks <= 74) {
+    echo "Second Class";
+} elseif ($marks >= 40 && $marks <= 59) {
+    echo "Third Class";
+} else {
+    echo "Fail";
+}
+?>
+
+output
+Second Class
+
+=== Code Execution Successful ===
