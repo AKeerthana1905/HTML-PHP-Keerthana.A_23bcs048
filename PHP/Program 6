@@ -1,0 +1,82 @@
+<?php
+// Start session for SESSION example
+session_start();
+
+// 1. SESSION example
+$_SESSION['session_name'] = "Keerthana";
+$_SESSION['session_age'] = 21;
+
+// 2. COOKIE example
+setcookie("cookie_name", "Keerthana", time() + 3600); // 1 hour
+setcookie("cookie_age", "21", time() + 3600);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Passing Data in PHP</title>
+</head>
+<body>
+    <h2>Passing Data in PHP</h2>
+
+    <!-- 1. GET Method -->
+    <p><a href="page2.php?get_name=Keerthana&get_age=21">Pass via GET Method</a></p>
+
+    <!-- 2. POST Method -->
+    <form action="page2.php" method="post">
+        <input type="hidden" name="post_name" value="Keerthana">
+        <input type="hidden" name="post_age" value="21">
+        <button type="submit">Pass via POST Method</button>
+    </form>
+
+    <!-- 3 & 4. SESSION & COOKIE -->
+    <p><a href="page2.php">Go to Page 2 (Session & Cookie Example)</a></p>
+</body>
+</html>
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Received</title>
+</head>
+<body>
+    <h2>Data Received in Page 2</h2>
+
+    <!-- GET Method -->
+    <?php
+    if (isset($_GET['get_name'])) {
+        echo "<h3>GET Method:</h3>";
+        echo "Name: " . $_GET['get_name'] . "<br>";
+        echo "Age: " . $_GET['get_age'] . "<br><br>";
+    }
+    ?>
+
+    <!-- POST Method -->
+    <?php
+    if (isset($_POST['post_name'])) {
+        echo "<h3>POST Method:</h3>";
+        echo "Name: " . $_POST['post_name'] . "<br>";
+        echo "Age: " . $_POST['post_age'] . "<br><br>";
+    }
+    ?>
+
+    <!-- SESSION Method -->
+    <?php
+    if (isset($_SESSION['session_name'])) {
+        echo "<h3>SESSION Method:</h3>";
+        echo "Name: " . $_SESSION['session_name'] . "<br>";
+        echo "Age: " . $_SESSION['session_age'] . "<br><br>";
+    }
+    ?>
+
+    <!-- COOKIE Method -->
+    <?php
+    if (isset($_COOKIE['cookie_name'])) {
+        echo "<h3>COOKIE Method:</h3>";
+        echo "Name: " . $_COOKIE['cookie_name'] . "<br>";
+        echo "Age: " . $_COOKIE['cookie_age'] . "<br><br>";
+    }
+    ?>
+</body>
+</html>
