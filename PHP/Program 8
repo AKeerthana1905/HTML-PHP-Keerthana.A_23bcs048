@@ -1,0 +1,27 @@
+<?php
+function deal($costA, $sizeA, $costB, $sizeB) {
+    // Calculate cost per liter
+    $pricePerLitreA = $costA / $sizeA;
+    $pricePerLitreB = $costB / $sizeB;
+
+    echo "Drink A: Rs.$costA for $sizeA L → Rs." . round($pricePerLitreA, 2) . " per L<br>";
+    echo "Drink B: Rs.$costB for $sizeB L → Rs." . round($pricePerLitreB, 2) . " per L<br><br>";
+
+    if ($pricePerLitreA < $pricePerLitreB) {
+        echo "Choose Drink A — better deal!";
+    } elseif ($pricePerLitreB < $pricePerLitreA) {
+        echo "Choose Drink B — better deal!";
+    } else {
+        echo "Both drinks cost the same per liter.";
+    }
+}
+
+// Call the function with given data
+deal(25, 11, 23, 9);
+?>
+
+output
+Drink A: Rs.25 for 11 L → Rs.2.27 per L
+Drink B: Rs.23 for 9 L → Rs.2.56 per L
+
+Choose Drink A — better deal!
