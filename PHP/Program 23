@@ -1,0 +1,18 @@
+<!-- news_list.php -->
+<a href="news.php?article=5">Read Article</a>
+
+<!-- news.php -->
+<?php
+echo "You are reading article ID: " . $_GET['article'];
+?>
+<!-- login.php -->
+<form method="post" action="dashboard.php">
+  Username: <input type="text" name="user"><br>
+  Password: <input type="password" name="pass"><br>
+  <input type="submit">
+</form>
+
+<!-- dashboard.php -->
+<?php
+echo "Welcome, " . $_POST['user'];
+?>
