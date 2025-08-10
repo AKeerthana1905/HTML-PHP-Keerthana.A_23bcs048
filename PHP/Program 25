@@ -1,0 +1,9 @@
+Construct a PHP script to replace the first ‘the’ of the following string with ‘best’. Data:
+“The Thing will come to you soon”
+
+code:
+<?php
+$str = "The Thing will come to you soon";
+$pos = stripos($str, "the");
+echo substr_replace($str, "best", $pos, 3);
+?>
