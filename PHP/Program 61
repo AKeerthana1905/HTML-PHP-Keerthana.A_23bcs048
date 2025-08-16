@@ -1,0 +1,82 @@
+61. Recall the steps to delete an element from an array?
+<?php
+// Original Array
+$arr = [10, 20, 30, 40];
+echo "Original Array:\n";
+print_r($arr);
+
+echo "--------------------------\n";
+
+// 1. Using unset() - removes by index (no reindexing)
+$unsetArr = $arr;
+unset($unsetArr[2]); // remove element at index 2 (30)
+echo "After unset():\n";
+print_r($unsetArr);
+
+echo "--------------------------\n";
+
+// 2. Using array_splice() - removes by index (reindexes)
+$spliceArr = $arr;
+array_splice($spliceArr, 2, 1); // remove 1 element at index 2 (30)
+echo "After array_splice():\n";
+print_r($spliceArr);
+
+echo "--------------------------\n";
+
+// 3. Using array_diff() - removes by value
+$diffArr = $arr;
+$diffArr = array_diff($diffArr, [30]); // remove value 30
+echo "After array_diff():\n";
+print_r($diffArr);
+
+echo "--------------------------\n";
+
+// 4. Using array_filter() - removes based on condition
+$filterArr = $arr;
+$filterArr = array_filter($filterArr, fn($x) => $x != 20); // remove value 20
+echo "After array_filter():\n";
+print_r($filterArr);
+?>
+
+output:
+Original Array:
+Array
+(
+    [0] => 10
+    [1] => 20
+    [2] => 30
+    [3] => 40
+)
+--------------------------
+After unset():
+Array
+(
+    [0] => 10
+    [1] => 20
+    [3] => 40
+)
+--------------------------
+After array_splice():
+Array
+(
+    [0] => 10
+    [1] => 20
+    [2] => 40
+)
+--------------------------
+After array_diff():
+Array
+(
+    [0] => 10
+    [1] => 20
+    [3] => 40
+)
+--------------------------
+After array_filter():
+Array
+(
+    [0] => 10
+    [2] => 30
+    [3] => 40
+)
+
