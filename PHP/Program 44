@@ -1,0 +1,69 @@
+44. Develop a music playlist management system for a streaming service. The system should allow users to create, modify, and organize playlists. How would you use arrays and array functions to store and manipulate the song data and playlist information efficiently?
+<?php
+$playlists = [
+    "Favorites" => [
+        ["title" => "Shape of You", "artist" => "Ed Sheeran", "duration" => "4:24"],
+        ["title" => "Blinding Lights", "artist" => "The Weeknd", "duration" => "3:20"]
+    ],
+    "Workout" => [
+        ["title" => "Stronger", "artist" => "Kanye West", "duration" => "5:11"]
+    ]
+];
+function addSong(&$playlists, $playlistName, $song) {
+    if (!isset($playlists[$playlistName])) {
+        $playlists[$playlistName] = [];
+    }
+    array_push($playlists[$playlistName], $song);
+}
+
+addSong($playlists, "Favorites", [
+    "title" => "Levitating", "artist" => "Dua Lipa", "duration" => "3:23"
+]);
+function addSong(&$playlists, $playlistName, $song) {
+    if (!isset($playlists[$playlistName])) {
+        $playlists[$playlistName] = [];
+    }
+    array_push($playlists[$playlistName], $song);
+}
+
+addSong($playlists, "Favorites", [
+    "title" => "Levitating", "artist" => "Dua Lipa", "duration" => "3:23"
+]);
+function removeSong(&$playlists, $playlistName, $title) {
+    if (isset($playlists[$playlistName])) {
+        foreach ($playlists[$playlistName] as $index => $song) {
+            if ($song["title"] === $title) {
+                unset($playlists[$playlistName][$index]);
+            }
+        }
+        $playlists[$playlistName] = array_values($playlists[$playlistName]); // Reindex
+    }
+}
+
+removeSong($playlists, "Favorites", "Shape of You");
+function listPlaylist($playlists, $playlistName) {
+    if (isset($playlists[$playlistName])) {
+        echo "Playlist: $playlistName\n";
+        foreach ($playlists[$playlistName] as $song) {
+            echo "{$song['title']} - {$song['artist']} ({$song['duration']})\n";
+        }
+    } else {
+        echo "Playlist '$playlistName' not found.\n";
+    }
+}
+
+listPlaylist($playlists, "Favorites");
+function sortPlaylistByTitle(&$playlists, $playlistName) {
+    if (isset($playlists[$playlistName])) {
+        usort($playlists[$playlistName], function($a, $b) {
+            return strcmp($a["title"], $b["title"]);
+        });
+    }
+}
+
+sortPlaylistByTitle($playlists, "Favorites");
+
+OUTPUT:
+Playlist: Favorites
+Blinding Lights - The Weeknd (3:20)
+Levitating - Dua Lipa (3:23)
