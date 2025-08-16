@@ -1,0 +1,47 @@
+57. Outline the Regular Expression with appropriate examples.
+<?php
+// Example 1: Check if a string starts with "Hello"
+if (preg_match("/^Hello/", "Hello World")) {
+    echo "Starts with Hello\n";
+}
+
+// Example 2: Validate an Email
+$email = "test@example.com";
+if (preg_match("/^[\w\.-]+@[\w\.-]+\.\w{2,4}$/", $email)) {
+    echo "Valid Email\n";
+}
+
+// Example 3: Extract all numbers
+$str = "My phone is 98765 and pin is 1234";
+preg_match_all("/\d+/", $str, $matches);
+print_r($matches);
+
+// Example 4: Replace spaces with dashes
+$text = "PHP is powerful";
+echo preg_replace("/\s+/", "-", $text) . "\n";
+
+// Example 5: Split a sentence by punctuation
+$sentence = "Hi! How are you? I'm fine.";
+$parts = preg_split("/[!?\.]/", $sentence);
+print_r($parts);
+?>
+
+output:
+Starts with Hello
+Valid Email
+Array
+(
+    [0] => Array
+        (
+            [0] => 98765
+            [1] => 1234
+        )
+)
+PHP-is-powerful
+Array
+(
+    [0] => Hi
+    [1] => How are you
+    [2] => I'm fine
+    [3] => 
+)
