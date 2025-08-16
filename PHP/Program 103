@@ -1,0 +1,20 @@
+103. Create a very simple pageview counter by using ‘isset’ to check if the pageview variable has
+already been created.
+code:
+<?php
+// Start session to track pageviews
+session_start();
+
+// Check if pageview counter exists
+if(isset($_SESSION['pageview'])) {
+    // Increment counter
+    $_SESSION['pageview']++;
+} else {
+    // Initialize counter for new session
+    $_SESSION['pageview'] = 1;
+}
+
+// Display pageview count
+echo "<h2>Pageview Counter</h2>";
+echo "You have visited this page <b>" . $_SESSION['pageview'] . "</b> times in this session.";
+?>
