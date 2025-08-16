@@ -1,0 +1,55 @@
+64. A retail company wants to forecast future sales based on historical data. Develop a system that utilizes
+numerical types, mathematical operators to analyze sales trends, calculate growth rates, and generate
+sales forecasts using arrays in php.
+<?php
+// Historical sales data (monthly sales in units or revenue)
+$sales = [1000, 1200, 1500, 1800, 2000, 2500];  
+
+// Function to calculate monthly growth rates
+function calculateGrowthRates($sales) {
+    $growthRates = [];
+    for ($i = 1; $i < count($sales); $i++) {
+        $growth = (($sales[$i] - $sales[$i - 1]) / $sales[$i - 1]) * 100;
+        $growthRates[] = round($growth, 2); // percentage
+    }
+    return $growthRates;
+}
+
+// Function to calculate average growth rate
+function averageGrowthRate($growthRates) {
+    return array_sum($growthRates) / count($growthRates);
+}
+
+// Function to forecast sales for next N months
+function forecastSales($sales, $avgGrowthRate, $months) {
+    $forecast = [];
+    $lastSale = end($sales); // last month sales
+    for ($i = 1; $i <= $months; $i++) {
+        $nextSale = $lastSale * (1 + ($avgGrowthRate / 100));
+        $forecast[] = round($nextSale, 2);
+        $lastSale = $nextSale; // update for next iteration
+    }
+    return $forecast;
+}
+
+// Step 1: Calculate growth rates
+$growthRates = calculateGrowthRates($sales);
+
+// Step 2: Average growth rate
+$avgGrowth = averageGrowthRate($growthRates);
+
+// Step 3: Forecast next 3 months
+$forecast = forecastSales($sales, $avgGrowth, 3);
+
+// Output
+echo "Historical Sales Data: " . implode(", ", $sales) . "<br>";
+echo "Monthly Growth Rates (%): " . implode(", ", $growthRates) . "<br>";
+echo "Average Growth Rate: " . round($avgGrowth, 2) . "%<br>";
+echo "Forecast for Next 3 Months: " . implode(", ", $forecast) . "<br>";
+?>
+
+Output:
+Historical Sales Data: 1000, 1200, 1500, 1800, 2000, 2500
+Monthly Growth Rates (%): 20, 25, 20, 11.11, 25
+Average Growth Rate: 20.22%
+Forecast for Next 3 Months: 3005.56, 3612.35, 4340.63
