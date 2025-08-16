@@ -1,0 +1,35 @@
+79. Create a PHP program to append two files in another file.
+
+code:
+<?php
+function appendFiles($file1, $file2, $outputFile) {
+    // Open the output file in append mode
+    $out = fopen($outputFile, "a");
+
+    if ($out) {
+        // Read contents of first file
+        if (file_exists($file1)) {
+            $content1 = file_get_contents($file1);
+            fwrite($out, $content1 . PHP_EOL);
+        } else {
+            echo "❌ File $file1 does not exist.<br>";
+        }
+
+        // Read contents of second file
+        if (file_exists($file2)) {
+            $content2 = file_get_contents($file2);
+            fwrite($out, $content2 . PHP_EOL);
+        } else {
+            echo "❌ File $file2 does not exist.<br>";
+        }
+
+        fclose($out);
+        echo "✅ Files appended successfully into $outputFile";
+    } else {
+        echo "❌ Unable to open output file.";
+    }
+}
+
+// Example usage
+appendFiles("file1.txt", "file2.txt", "final.txt");
+?>
