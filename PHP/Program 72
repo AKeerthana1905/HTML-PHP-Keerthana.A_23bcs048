@@ -1,0 +1,36 @@
+<?php
+// Start the session
+session_start();
+
+// Old (Deprecated way): session_register("username"); ❌
+// Modern way:
+$_SESSION["username"] = "Keerthana";
+$_SESSION["role"] = "Admin";
+
+echo "Session variables are set.<br>";
+echo "Username: " . $_SESSION["username"] . "<br>";
+echo "Role: " . $_SESSION["role"] . "<br>";
+?>
+<?php
+session_start();
+
+// Unset all session variables
+session_unset();
+
+echo "All session variables are unset.<br>";
+?>
+<?php
+session_start();
+
+// Destroy session
+session_destroy();
+
+echo "Session destroyed successfully.<br>";
+?>
+output:
+Session variables are set.
+Username: Keerthana
+Role: Admin
+All session variables are unset.
+Session destroyed successfully.
+
