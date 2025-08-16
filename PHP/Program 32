@@ -1,0 +1,17 @@
+
+32. Infer the result of the following PHP code?
+a.<?php
+$mail = "admin@example.com";
+$mail = str_replace("a","@",$mail);
+echo "Contact me at $mail.";
+?>
+
+CODE:
+<?php
+$mail = "admin@example.com";
+$mail = str_replace("a","@",$mail);
+echo "Contact me at $mail.";
+?>
+
+OUTPUT:
+Contact me at @dmin@ex@mple.com.
