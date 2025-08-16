@@ -1,0 +1,21 @@
+48. Record number handling in PHP with suitable examples.
+CODE:
+<?php
+$students = ["Alice", "Bob", "Charlie", "David"];
+
+// Get total number of records
+$totalRecords = count($students);
+
+echo "Total Students: $totalRecords\n";
+
+// Display each record with its record number
+foreach ($students as $index => $name) {
+    echo "Record " . ($index + 1) . ": $name\n";
+}
+?>
+OUTPUT:
+Total Students: 4
+Record 1: Alice
+Record 2: Bob
+Record 3: Charlie
+Record 4: David
