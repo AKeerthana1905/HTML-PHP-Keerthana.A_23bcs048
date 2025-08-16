@@ -15,3 +15,19 @@ echo "Contact me at $mail.";
 
 OUTPUT:
 Contact me at @dmin@ex@mple.com.
+b. Determine the result of the following PHP code?
+<?php
+$names = array("alex", "jean", "emily", "jane");
+$name = preg_grep("/^e/", $names);
+print_r($name);
+?>
+
+CODE:
+<?php
+$names = array("alex", "jean", "emily", "jane");
+$name = preg_grep("/^e/", $names);
+print_r($name);
+?>
+
+OUTPUT:
+Array ( [2] => emily )
