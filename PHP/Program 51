@@ -1,0 +1,17 @@
+51. Differentiate between array_shift() and array_unshift() in PHP.
+CODE:
+<?php
+$arr = [10, 20, 30, 40];
+
+// array_shift example
+$removed = array_shift($arr);
+echo "Removed: $removed\n";
+print_r($arr); // [20, 30, 40]
+
+// array_unshift example
+array_unshift($arr, 5, 15);
+print_r($arr); // [5, 15, 20, 30, 40]
+?>
+
+OUTPUT:
+Removed: 10 Array ( [0] => 20 [1] => 30 [2] => 40 ) Array ( [0] => 5 [1] => 15 [2] => 20 [3] => 30 [4] => 40 )
