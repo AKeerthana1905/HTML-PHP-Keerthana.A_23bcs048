@@ -1,0 +1,24 @@
+105. Write a PHP function to get the start and end date of a week (by week number) of a particular
+year.Sample week and year: 12, 2014.
+<?php
+function getStartAndEndDate($week, $year) {
+    // Get timestamp for the first day of the year
+    $dto = new DateTime();
+    $dto->setISODate($year, $week); // ISO week number
+    $startDate = $dto->format('Y-m-d'); // Monday of the week
+
+    // Get Sunday of the same week
+    $dto->modify('+6 days');
+    $endDate = $dto->format('Y-m-d');
+
+    return array('start' => $startDate, 'end' => $endDate);
+}
+
+// Example usage
+$week = 12;
+$year = 2014;
+
+$dates = getStartAndEndDate($week, $year);
+echo "Week $week of $year starts on: " . $dates['start'] . "<br>";
+echo "Week $week of $year ends on: " . $dates['end'];
+?>
