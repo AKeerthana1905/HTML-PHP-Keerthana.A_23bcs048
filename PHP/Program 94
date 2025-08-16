@@ -1,0 +1,28 @@
+94. Evaluate the different file handling modes available in PHP with appropriate examples.
+<?php
+$handle = fopen("sample.txt", "r") or die("File not found!");
+echo fread($handle, filesize("sample.txt"));
+fclose($handle);
+?>
+<?php
+$handle = fopen("sample.txt", "w") or die("Unable to open file!");
+fwrite($handle, "New content replaces old!");
+fclose($handle);
+?>
+<?php
+$handle = fopen("sample.txt", "a") or die("Unable to open file!");
+fwrite($handle, "\nThis line is appended.");
+fclose($handle);
+?>
+<?php
+$handle = fopen("newfile.txt", "x") or die("File already exists!");
+fwrite($handle, "This file was newly created!");
+fclose($handle);
+?>
+<?php
+$handle = fopen("sample.txt", "c+") or die("Unable to open file!");
+fwrite($handle, "This will overwrite from start but not truncate file.");
+rewind($handle);
+echo fread($handle, filesize("sample.txt"));
+fclose($handle);
+?>
