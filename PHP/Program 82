@@ -1,0 +1,27 @@
+82. Implement the setcookie( ) function with various arguments using the PHP program.
+<?php
+// Cookie valid for 1 hour
+setcookie("simpleCookie", "HelloWorld", time() + 3600);
+
+// Cookie valid for 1 day, only in root path
+setcookie("pathCookie", "PathRoot", time() + 86400, "/");
+
+// Cookie valid for 2 days, for specific domain
+setcookie("domainCookie", "ForExample", time() + 172800, "/", "localhost");
+
+// Secure & HttpOnly cookie (only works on HTTPS)
+setcookie("secureCookie", "TopSecret", time() + 3600, "/", "localhost", false, true);
+
+// Show message
+echo "✅ Cookies are set. Please refresh page to read them.<br>";
+
+// Read cookies after refresh
+if (!empty($_COOKIE)) {
+    echo "<h3>Available Cookies:</h3>";
+    foreach ($_COOKIE as $key => $value) {
+        echo $key . " = " . $value . "<br>";
+    }
+} else {
+    echo "No cookies found yet. Refresh the page.";
+}
+?>
