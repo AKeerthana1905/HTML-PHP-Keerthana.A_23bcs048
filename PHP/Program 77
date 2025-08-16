@@ -1,0 +1,14 @@
+77. Classify the various network functions which provide network information or functions.
+code:
+
+<?php
+echo "Hostname: " . gethostname() . "<br>";
+echo "Google's IP: " . gethostbyname("google.com") . "<br>";
+echo "Host from IP: " . gethostbyaddr("8.8.8.8") . "<br>";
+
+if (checkdnsrr("google.com", "MX")) {
+    echo "DNS MX record found for google.com<br>";
+} else {
+    echo "No MX record found.<br>";
+}
+?>
