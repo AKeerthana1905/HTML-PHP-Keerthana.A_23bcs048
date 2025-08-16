@@ -1,0 +1,35 @@
+100. Using PHP, construct a program to restrict the user from uploading the same file again and again.
+If the same file already exists in that folder, display an appropriate error message.
+<?php
+$uploadDir = "uploads/";  // Folder to store uploads
+
+if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_FILES['userfile'])) {
+    $targetFile = $uploadDir . basename($_FILES["userfile"]["name"]);
+
+    // Check if file already exists
+    if (file_exists($targetFile)) {
+        echo "<p style='color:red;'>❌ Error: This file already exists. Please upload another file.</p>";
+    } else {
+        // Try moving uploaded file
+        if (move_uploaded_file($_FILES["userfile"]["tmp_name"], $targetFile)) {
+            echo "<p style='color:green;'>✅ File '" . basename($_FILES["userfile"]["name"]) . "' uploaded successfully.</p>";
+        } else {
+            echo "<p style='color:red;'>❌ Error: File upload failed.</p>";
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload Restriction</title>
+</head>
+<body>
+    <h2>Upload a File</h2>
+    <form method="post" enctype="multipart/form-data">
+        Select file: <input type="file" name="userfile" required>
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
