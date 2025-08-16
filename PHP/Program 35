@@ -1,0 +1,20 @@
+35. Write a PHP script using an array that checks if a string contains another string and displays the result.
+CODE:
+<?php
+$strings = array("Hello World", "PHP is fun", "Learn programming");
+
+// String to search for
+$search = "PHP";
+
+// Loop through array and check if each string contains the search word
+foreach ($strings as $str) {
+    if (strpos($str, $search) !== false) {
+        echo "'$search' found in: $str\n";
+    } else {
+        echo "'$search' not found in: $str\n";
+    }
+}
+?>
+
+OUTPUT:
+'PHP' not found in: Hello World 'PHP' found in: PHP is fun 'PHP' not found in: Learn programming
