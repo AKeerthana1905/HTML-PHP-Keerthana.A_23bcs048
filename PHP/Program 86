@@ -1,0 +1,41 @@
+86. PHP File functions with example program.
+code:
+<?php
+$filename = "demo.txt";
+
+// 1. Create & Write into a File
+$file = fopen($filename, "w"); // open file in write mode
+fwrite($file, "Hello, this is line 1.\n");
+fwrite($file, "This is line 2.\n");
+fclose($file);
+echo "✅ File created and data written.<br>";
+
+// 2. Read entire file
+echo "<h3>Reading using file_get_contents:</h3>";
+echo nl2br(file_get_contents($filename)) . "<br>";
+
+// 3. Append to file
+file_put_contents($filename, "This is an appended line.\n", FILE_APPEND);
+echo "<h3>After Appending:</h3>";
+echo nl2br(file_get_contents($filename)) . "<br>";
+
+// 4. Read line by line
+echo "<h3>Reading line by line:</h3>";
+$file = fopen($filename, "r");
+while (!feof($file)) {
+    echo fgets($file) . "<br>";
+}
+fclose($file);
+
+// 5. Copy file
+copy($filename, "copy_demo.txt");
+echo "✅ File copied as copy_demo.txt<br>";
+
+// 6. Rename file
+rename("copy_demo.txt", "renamed_demo.txt");
+echo "✅ File renamed to renamed_demo.txt<br>";
+
+// 7. Delete file
+unlink("renamed_demo.txt");
+echo "✅ renamed_demo.txt deleted.<br>";
+?>
