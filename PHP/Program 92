@@ -1,0 +1,12 @@
+92. Apply the various steps involved to get cookie value using server-side scripting.
+<?php
+// Step 1: Set cookie (valid for 1 hour)
+setcookie("username", "Keerthana", time() + 3600, "/");
+
+// Step 2: Get cookie value
+if(isset($_COOKIE["username"])) {
+    echo "Cookie Value: " . $_COOKIE["username"];
+} else {
+    echo "Cookie not set yet!";
+}
+?>
