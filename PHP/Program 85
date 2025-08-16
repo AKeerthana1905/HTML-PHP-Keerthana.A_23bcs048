@@ -1,0 +1,20 @@
+85. List the steps to get file name from a path in PHP.
+code:
+<?php
+$path = "/var/www/html/project/demo.txt";
+echo basename($path);        // Output: demo.txt
+echo basename($path, ".txt"); // Output: demo
+?>
+<?php
+$path = "/var/www/html/project/demo.txt";
+$info = pathinfo($path);
+
+echo $info['basename']; // Output: demo.txt
+echo $info['filename']; // Output: demo
+echo $info['extension']; // Output: txt
+?>
+<?php
+$path = "/var/www/html/project/demo.txt";
+$parts = explode("/", $path);
+echo end($parts);  // Output: demo.txt
+?>
