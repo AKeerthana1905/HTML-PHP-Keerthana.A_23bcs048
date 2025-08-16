@@ -1,0 +1,17 @@
+65. Demonstrate PHP script that checks if a string contains another string and displays the result.
+<?php
+// Main string
+$text = "Welcome to PHP programming!";
+
+// Word to search
+$search = "PHP";
+
+// Check if string contains another
+if (strpos($text, $search) !== false) {
+    echo "The string '$search' was found in the text.";
+} else {
+    echo "The string '$search' was NOT found in the text.";
+}
+?>
+Output:
+The string 'PHP' was found in the text.
