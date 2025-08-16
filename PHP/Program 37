@@ -1,0 +1,46 @@
+37. Explain Push and Pop in array functions.
+CODE:
+In PHP, Push and Pop are array functions used to add or remove elements from the end of an array.
+1. array_push() – Push
+Purpose: Adds one or more elements to the end of an array.
+Syntax:
+
+ array_push($array, $value1, $value2, ...);
+Example:
+
+ <?php
+$fruits = ["Apple", "Banana"];
+array_push($fruits, "Cherry", "Mango");
+print_r($fruits);
+?>
+
+ Output:
+
+ Array
+(
+    [0] => Apple
+    [1] => Banana
+    [2] => Cherry
+    [3] => Mango
+)
+2. array_pop() – Pop
+Purpose: Removes and returns the last element from an array.
+Syntax:
+
+ $lastValue = array_pop($array);
+Example:
+
+ <?php
+$fruits = ["Apple", "Banana", "Cherry"];
+$lastFruit = array_pop($fruits);
+echo "Removed: $lastFruit\n";
+print_r($fruits);
+?>
+ Output:
+
+ Removed: Cherry
+Array
+(
+    [0] => Apple
+    [1] => Banana
+)
