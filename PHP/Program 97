@@ -1,0 +1,40 @@
+97. Discover the various session functions of PHP. Explain its behavior.
+<?php
+// Start or resume session
+session_start();
+
+// 1. Show current session ID and name
+echo "<h3>Session Information</h3>";
+echo "Session ID: " . session_id() . "<br>";
+echo "Session Name: " . session_name() . "<br>";
+echo "Session Status: " . session_status() . "<br><br>";
+
+// 2. Set some session variables
+$_SESSION["user"] = "Keerthana";
+$_SESSION["role"] = "Admin";
+
+echo "<h3>Session Variables Set</h3>";
+echo "User: " . $_SESSION["user"] . "<br>";
+echo "Role: " . $_SESSION["role"] . "<br><br>";
+
+// 3. Regenerate Session ID (for security)
+session_regenerate_id(true);
+echo "<h3>After Regenerating Session ID</h3>";
+echo "New Session ID: " . session_id() . "<br><br>";
+
+// 4. Get Session Cookie Parameters
+echo "<h3>Session Cookie Parameters</h3>";
+print_r(session_get_cookie_params());
+echo "<br><br>";
+
+// 5. Unset session variables
+session_unset();
+echo "<h3>After session_unset()</h3>";
+echo "User: " . ($_SESSION["user"] ?? "Not Set") . "<br>";
+echo "Role: " . ($_SESSION["role"] ?? "Not Set") . "<br><br>";
+
+// 6. Destroy the session completely
+session_destroy();
+echo "<h3>After session_destroy()</h3>";
+echo "Session destroyed. Reload the page to see effect.";
+?>
