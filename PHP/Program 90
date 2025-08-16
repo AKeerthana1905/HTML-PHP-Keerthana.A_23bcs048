@@ -1,0 +1,24 @@
+90. Write a PHP program to open a text file and print all the data in it.
+<?php
+// File name
+$filename = "data.txt";
+
+// Check if file exists
+if (file_exists($filename)) {
+    // Open file in read mode
+    $file = fopen($filename, "r") or die("Unable to open file!");
+
+    // Read the entire file content
+    $filesize = filesize($filename);
+    $data = fread($file, $filesize);
+
+    // Print file content
+    echo "<h3>📂 File Content:</h3>";
+    echo nl2br($data); // Convert newlines to <br> for browser
+
+    // Close the file
+    fclose($file);
+} else {
+    echo "❌ File not found!";
+}
+?>
