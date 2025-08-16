@@ -1,0 +1,42 @@
+95. Discuss the purpose and functionality of PHP sessions and outline their potential application in
+maintaining a user's shopping cart state across multiple pages.
+<?php
+session_start();
+
+// Add an item to cart
+$item = "Laptop";
+$price = 50000;
+
+// Store in session
+$_SESSION['cart'][] = array("item" => $item, "price" => $price);
+
+echo "Item added to cart successfully!<br>";
+echo "<a href='view_cart.php'>View Cart</a>";
+?>
+<?php
+session_start();
+
+if(isset($_SESSION['cart'])) {
+    echo "<h2>Your Shopping Cart</h2>";
+    $total = 0;
+
+    foreach($_SESSION['cart'] as $product) {
+        echo "Item: " . $product['item'] . " - Price: " . $product['price'] . "<br>";
+        $total += $product['price'];
+    }
+
+    echo "<b>Total = $total</b><br>";
+} else {
+    echo "Your cart is empty!";
+}
+
+echo "<br><a href='add_to_cart.php'>Add More Items</a>";
+?>
+<?php
+session_start();
+session_unset();     // Remove session variables
+session_destroy();   // Destroy session completely
+
+echo "Cart cleared successfully!<br>";
+echo "<a href='add_to_cart.php'>Start Shopping Again</a>";
+?>
