@@ -1,0 +1,32 @@
+71. Tell the different file handling modes available in PHP?
+<?php
+$filename = "demo.txt";
+
+// Writing to a file using 'w' mode
+$file = fopen($filename, "w");
+fwrite($file, "Hello, this is written using w mode.\n");
+fclose($file);
+
+// Reading the file using 'r' mode
+$file = fopen($filename, "r");
+echo "Reading file using r mode:<br>";
+echo fread($file, filesize($filename));
+fclose($file);
+
+// Appending to a file using 'a' mode
+$file = fopen($filename, "a");
+fwrite($file, "This line is appended using a mode.\n");
+fclose($file);
+
+// Reading again to see appended content
+$file = fopen($filename, "r");
+echo "<br>Reading after append:<br>";
+echo fread($file, filesize($filename));
+fclose($file);
+?>
+Reading file using r mode:
+Hello, this is written using w mode.
+
+Reading after append:
+Hello, this is written using w mode.
+This line is appended using a mode.
