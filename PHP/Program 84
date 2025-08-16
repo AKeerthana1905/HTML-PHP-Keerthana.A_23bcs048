@@ -1,0 +1,27 @@
+84. Implement a PHP program that creates sessions, sets values in sessions, and removes data from
+the sessions.
+code:
+<?php
+session_start(); // Start the session
+
+// Set session variables
+$_SESSION["username"] = "Keerthana";
+$_SESSION["role"] = "Admin";
+
+echo "<h3>Session Created and Values Set</h3>";
+echo "Username: " . $_SESSION["username"] . "<br>";
+echo "Role: " . $_SESSION["role"] . "<br>";
+
+// Remove a specific session variable
+unset($_SESSION["role"]);
+echo "<br><b>After unsetting 'role':</b><br>";
+if (isset($_SESSION["role"])) {
+    echo "Role: " . $_SESSION["role"];
+} else {
+    echo "Role has been removed.<br>";
+}
+
+// Destroy all session data
+session_destroy();
+echo "<br><b>Session destroyed. All data removed.</b>";
+?>
