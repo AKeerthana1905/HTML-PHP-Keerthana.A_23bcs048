@@ -1,0 +1,12 @@
+91. Recognize how sessions are stored in PHP?
+<?php
+session_start();
+
+$_SESSION["user"] = "Keerthana";
+$_SESSION["role"] = "Admin";
+
+// Show session info
+echo "Session ID: " . session_id() . "<br>";
+echo "Session Save Path: " . session_save_path() . "<br>";
+echo "Session Name: " . session_name() . "<br>";
+?>
