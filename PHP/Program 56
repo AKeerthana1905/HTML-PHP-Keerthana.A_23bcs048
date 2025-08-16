@@ -1,0 +1,92 @@
+<?php
+// Sample arrays
+$indexed = [5, 2, 9, 1, 7];
+$assoc   = ["c" => 3, "a" => 1, "b" => 2, "d" => 4];
+$natural = ["img12.png", "img10.png", "img2.png", "img1.png"];
+
+// 1. sort() - Indexed Ascending
+$sorted = $indexed;
+sort($sorted);
+echo "sort(): ";
+print_r($sorted);
+
+// 2. rsort() - Indexed Descending
+$sorted = $indexed;
+rsort($sorted);
+echo "rsort(): ";
+print_r($sorted);
+
+// 3. asort() - Assoc Ascending (keeps keys)
+$sorted = $assoc;
+asort($sorted);
+echo "asort(): ";
+print_r($sorted);
+
+// 4. arsort() - Assoc Descending (keeps keys)
+$sorted = $assoc;
+arsort($sorted);
+echo "arsort(): ";
+print_r($sorted);
+
+// 5. ksort() - Keys Ascending
+$sorted = $assoc;
+ksort($sorted);
+echo "ksort(): ";
+print_r($sorted);
+
+// 6. krsort() - Keys Descending
+$sorted = $assoc;
+krsort($sorted);
+echo "krsort(): ";
+print_r($sorted);
+
+// 7. usort() - User-defined by values
+$sorted = $indexed;
+usort($sorted, function($a, $b) {
+    return $a <=> $b; // Same as ascending
+});
+echo "usort(): ";
+print_r($sorted);
+
+// 8. uasort() - User-defined, keep keys
+$sorted = $assoc;
+uasort($sorted, function($a, $b) {
+    return $b <=> $a; // Descending by values
+});
+echo "uasort(): ";
+print_r($sorted);
+
+// 9. uksort() - User-defined by keys
+$sorted = $assoc;
+uksort($sorted, function($a, $b) {
+    return strcmp($a, $b); // Ascending by keys
+});
+echo "uksort(): ";
+print_r($sorted);
+
+// 10. natsort() - Natural order
+$sorted = $natural;
+natsort($sorted);
+echo "natsort(): ";
+print_r($sorted);
+
+// 11. natcasesort() - Natural order case-insensitive
+$sorted = ["Img2.png", "img10.png", "img1.png"];
+natcasesort($sorted);
+echo "natcasesort(): ";
+print_r($sorted);
+
+// 12. shuffle() - Random order
+$shuffled = $indexed;
+shuffle($shuffled);
+echo "shuffle(): ";
+print_r($shuffled);
+
+// 13. array_multisort() - Multiple arrays
+$nums = [10, 100, 30, 20];
+$letters = ["d", "a", "c", "b"];
+array_multisort($nums, SORT_ASC, $letters, SORT_DESC);
+echo "array_multisort(): \n";
+print_r($nums);
+print_r($letters);
+?>
