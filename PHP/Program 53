@@ -1,0 +1,47 @@
+53. Demonstrate the difference in behaviour of array_pop() and array_shift() using a numeric array.
+CODE:
+<?php
+// Numeric array
+$numbers = [10, 20, 30, 40, 50];
+
+echo "Original Array: ";
+print_r($numbers);
+
+// array_pop() - removes LAST element
+$popped = array_pop($numbers);
+echo "\narray_pop() removed: $popped\n";
+echo "Array after array_pop(): ";
+print_r($numbers);
+
+// array_shift() - removes FIRST element
+$shifted = array_shift($numbers);
+echo "\narray_shift() removed: $shifted\n";
+echo "Array after array_shift(): ";
+print_r($numbers);
+?>
+OUTPUT:
+Original Array: Array
+(
+    [0] => 10
+    [1] => 20
+    [2] => 30
+    [3] => 40
+    [4] => 50
+)
+
+array_pop() removed: 50
+Array after array_pop(): Array
+(
+    [0] => 10
+    [1] => 20
+    [2] => 30
+    [3] => 40
+)
+
+array_shift() removed: 10
+Array after array_shift(): Array
+(
+    [0] => 20
+    [1] => 30
+    [2] => 40
+)
